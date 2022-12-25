@@ -1,5 +1,7 @@
 FROM python:3.10.8
 
+EXPOSE 8000
+
 WORKDIR /code
 
 COPY ./requirements.txt /code/requirements.txt
