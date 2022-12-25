@@ -1,6 +1,7 @@
 FROM python:3.10.8
 
 EXPOSE 8000
+EXPOSE 27017
 
 WORKDIR /code
 
