@@ -7,7 +7,9 @@ import app.schemas as schemas
 
 async def get_swaps_daterange(request: schemas.SwapCamRequest) -> List[schemas.SwapResponse]:
     swap_cam = dbase['swap_cam']
-    data = swap_cam.find({'swap_index':request.swap_name,'tenor':request.tenor,'fecha':{'$lt':request.date_end,'$gte':request.date_ini}},{"_id":0})
+    date_ini = datetime.datetime.combine(request.date_ini, datetime.time.min)
+    date_end = datetime.datetime.combine(request.date_end, datetime.time.max)
+    data = swap_cam.find({'swap_index':request.swap_name,'tenor':request.tenor,'fecha':{'$lt':date_end,'$gte':date_ini}},{"_id":0})
     output_list = []
     for x in data:
         output_list.append(x)

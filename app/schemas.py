@@ -3,7 +3,7 @@ import datetime as dt
 from typing import List
 
 class SwapResponse(BaseModel):
-    fecha: dt.datetime.date
+    fecha: dt.datetime
     swap_index: str
     tenor: str
     valor: float
