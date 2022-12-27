@@ -13,9 +13,9 @@ async def imacec_by_year(year_request: str):
 
 @app.post('/swapcam/bytenor/bydaterange', response_model = List[schemas.SwapResponse])
 async def swapcam_by_datarange(request: schemas.SwapCamRequest):
-    response = await get_swaps_daterange
+    response = await get_swaps_daterange(request=request)
     return response
-    
+
 # @app.post('/swapcam/daterange', response_model = List[schemas.SwapResponse])
 # async def swapcam_by_daterange(request_body: schemas.SwapCamRequest):
 #     response = await get_swapcam_daterange(request_body)
