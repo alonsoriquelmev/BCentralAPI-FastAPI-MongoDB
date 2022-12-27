@@ -3,15 +3,16 @@ import datetime as dt
 from typing import List
 
 class SwapResponse(BaseModel):
-    Fecha: List[dt.date]
-    Swap_Index: List[str]
-    Tenor: List[str]
-    Valor: List[float]
+    fecha: dt.date
+    swap_index: str
+    tenor: str
+    valor: float
     class Config:
         orm_mode = True
 
 class SwapCamRequest(BaseModel):
     swap_name: str
+    tenor: str
     date_ini: dt.date
     date_end: dt.date
     class Config:

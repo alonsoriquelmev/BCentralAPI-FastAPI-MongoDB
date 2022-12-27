@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from .services import get_imacec_date
+from .services import get_imacec_date, get_swaps_daterange
 from typing import List
 import app.schemas as schemas
 
@@ -11,6 +11,11 @@ async def imacec_by_year(year_request: str):
     return response
 
 
+@app.post('/swapcam/bytenor/bydaterange', response_model = List[schemas.SwapResponse])
+async def swapcam_by_datarange(request: schemas.SwapCamRequest):
+    response = await get_swaps_daterange
+    return response
+    
 # @app.post('/swapcam/daterange', response_model = List[schemas.SwapResponse])
 # async def swapcam_by_daterange(request_body: schemas.SwapCamRequest):
 #     response = await get_swapcam_daterange(request_body)
