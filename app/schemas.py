@@ -13,8 +13,8 @@ class SwapResponse(BaseModel):
 class SwapCamRequest(BaseModel):
     swap_name: str
     tenor: str
-    date_ini: dt.datetime
-    date_end: dt.datetime
+    date_ini: dt.date
+    date_end: dt.date
     class Config:
         orm_mode = True
 
